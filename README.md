@@ -2,7 +2,7 @@
 
 This is a section of the Javascript Blockchain/Smart Contract FreeCodeCamp Course.
 
-*[⌨️ (13:41:02) Lesson 9: Hardhat Smart Contract Lottery](https://www.youtube.com/watch?v=gyMwXuJrbJQ&t=49262s)*
+Video Coming soon...
 
 [Full Repo](https://github.com/smartcontractkit/full-blockchain-solidity-course-js)
 
@@ -42,9 +42,10 @@ Video coming soon...
 ## Quickstart
 
 ```
-git clone https://github.com/PatrickAlphaC/hardhat-smartcontract-lottery-fcc
-cd hardhat-smartcontract-lottery-fcc
+git clone --branch typescript https://github.com/PatrickAlphaC/hardhat-fund-me-fcc
+cd hardhat-fund-me-fcc
 yarn
+yarn typechain
 ```
 
 ## Typescript
@@ -53,7 +54,6 @@ If you want to get to typescript and you cloned the javascript version, just run
 
 ```
 git checkout typescript
-yarn 
 ```
 
 # Useage
@@ -103,7 +103,7 @@ Head over to [vrf.chain.link](https://vrf.chain.link/) and setup a new subscript
 
 3. Deploy
 
-In your `helper-hardhat-config.js` add your `subscriptionId` under the section of the chainId you're using (aka, if you're deploying to rinkeby, add your `subscriptionId` in the `subscriptionId` field under the `4` section.)
+In your `helper-hardhat-config.ts` add your `subscriptionId` under the section of the chainId you're using (aka, if you're deploying to rinkeby, add your `subscriptionId` in the `subscriptionId` field under the `4` section.)
 
 Then run:
 ```
@@ -129,14 +129,14 @@ Go to [keepers.chain.link](https://keepers.chain.link/new) and register a new up
 You're contract is now setup to be a tamper proof autonomous verifiably random lottery. Enter the lottery by running:
 
 ```
-yarn hardhat run scripts/enter.js --network rinkeby
+yarn hardhat run scripts/enter.ts --network rinkeby
 ```
 
 ### Estimate gas cost in USD
 
 To get a USD estimation of gas cost, you'll need a `COINMARKETCAP_API_KEY` environment variable. You can get one for free from [CoinMarketCap](https://pro.coinmarketcap.com/signup). 
 
-Then, uncomment the line `coinmarketcap: COINMARKETCAP_API_KEY,` in `hardhat.config.js` to get the USD estimation. Just note, everytime you run your tests it will use an API call, so it might make sense to have using coinmarketcap disabled until you need it. You can disable it by just commenting the line back out. 
+Then, uncomment the line `coinmarketcap: COINMARKETCAP_API_KEY,` in `hardhat.config.ts` to get the USD estimation. Just note, everytime you run your tests it will use an API call, so it might make sense to have using coinmarketcap disabled until you need it. You can disable it by just commenting the line back out. 
 
 
 
@@ -149,7 +149,7 @@ In it's current state, if you have your api key set, it will auto verify kovan c
 However, you can manual verify with:
 
 ```
-yarn hardhat verify --constructor-args arguments.js DEPLOYED_CONTRACT_ADDRESS
+yarn hardhat verify --constructor-args arguments.ts DEPLOYED_CONTRACT_ADDRESS
 ```
 
 ### Typescript differences
